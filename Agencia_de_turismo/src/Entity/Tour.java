@@ -15,6 +15,6 @@ public class Tour {
     private String nombreComercial;
     private String lugarPartida;
     private String horaPartida;
-    private double precioso;
+    private double precio;
     
 }
