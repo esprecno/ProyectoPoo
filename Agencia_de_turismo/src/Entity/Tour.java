@@ -11,4 +11,10 @@ package Entity;
  */
 public class Tour {
     
+    private long codigoIdentificacion;
+    private String nombreComercial;
+    private String lugarPartida;
+    private String horaPartida;
+    private double precio;
+    
 }
