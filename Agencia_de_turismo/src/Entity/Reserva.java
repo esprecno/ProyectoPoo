@@ -5,10 +5,16 @@
  */
 package Entity;
 
+import java.util.Calendar;
+
 /**
  *
  * @author alejo
  */
 public class Reserva {
     
+    private long numeroReserva;
+    private Calendar fecha;
+    private boolean pagado;
+    private int cantidadPersonas;
 }

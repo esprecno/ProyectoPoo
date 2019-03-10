@@ -11,4 +11,7 @@ package Entity;
  */
 public class Cliente {
     
+    private long numeroIdentificacion;
+    private String nombreCompleto;
+    private String telefonoContacto;
 }
