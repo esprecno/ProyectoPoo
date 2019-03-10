@@ -17,4 +17,5 @@ public class Reserva {
     private Calendar fecha;
     private boolean pagado;
     private int cantidadPersonas;
+    private Cliente clienteReserva;
 }
