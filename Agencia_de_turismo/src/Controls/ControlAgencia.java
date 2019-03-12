@@ -7,6 +7,7 @@ package Controls;
 
 import Entity.Cliente;
 import Entity.Reserva;
+import Entity.Tour;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,10 +18,12 @@ import java.util.Scanner;
 public class ControlAgencia {
     private ArrayList<Cliente> listaClientes;
     private ArrayList<Reserva> reservas;
+    private ArrayList<Tour> listaTours;
     
     public ControlAgencia() {
         this.listaClientes = new ArrayList<Cliente>();
         this.reservas = new ArrayList<Reserva>();
+        this.listaTours = new ArrayList<Tour>();
     }
     
     public void insertarCliente(long id,String nombre,String telefono){
@@ -110,5 +113,43 @@ public class ControlAgencia {
             }
         }
         return false;
+    }
+     public void listadoTours ()
+    {
+        System.out.println("====LISTADO DE TOURS=====");
+        int x=1;
+        for (Tour not:  this.listaTours)
+        {
+            System.out.println("Nombre del tour"+x+" "+not.getNombreComercial());
+            System.out.println("Codigo del tour"+x+":"+not.getCodigoIdentificacion());
+            System.out.println("Precio del tour"+x+":"+not.getPrecio());
+            x++;
+        }
+    }
+    public void listadoclientes()
+    {
+        int x=1;
+        System.out.println("====Listado de Clientes====");
+        for (Cliente not:  listaClientes)
+        {
+            System.out.println("Numero de identificacion del cliente "+x+not.getNumeroIdentificacion());
+            System.out.println("Nombre Completo del cliente "+x+not.getNombreCompleto());
+            System.out.println("Telefono: "+not.getTelefonoContacto());
+            x++;
+        }
+    }
+   
+    public void listadoResevas ()
+    {
+        int x=1;
+        System.out.println("====Listado de reservas===");
+        for (Reserva not:  reservas)
+        {
+            System.out.println("Codigo de la  reserva "+x+ ":"+not.getNumeroReserva());
+            System.out.println("Fecha de la reserva: "+not.getFecha());
+            System.out.println("Numero de personas:  "+not.getCantidadPersonas());
+            System.out.println("Precio:");
+            x++;
+        }
     }
 }
