@@ -15,6 +15,47 @@ public class Tour {
     private String nombreComercial;
     private String lugarPartida;
     private String horaPartida;
-    private double precioso;
+    private double precio;
+
+    public long getCodigoIdentificacion() {
+        return codigoIdentificacion;
+    }
+
+    public void setCodigoIdentificacion(long codigoIdentificacion) {
+        this.codigoIdentificacion = codigoIdentificacion;
+    }
+
+    public String getNombreComercial() {
+        return nombreComercial;
+    }
+
+    public void setNombreComercial(String nombreComercial) {
+        this.nombreComercial = nombreComercial;
+    }
+
+    public String getLugarPartida() {
+        return lugarPartida;
+    }
+
+    public void setLugarPartida(String lugarPartida) {
+        this.lugarPartida = lugarPartida;
+    }
+
+    public String getHoraPartida() {
+        return horaPartida;
+    }
+
+    public void setHoraPartida(String horaPartida) {
+        this.horaPartida = horaPartida;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
     
 }
