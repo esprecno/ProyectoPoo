@@ -24,7 +24,6 @@ public class Tour {
         this.horaPartida = horaPartida;
         this.precio = precio;
     }
-    
 
     public long getCodigoIdentificacion() {
         return codigoIdentificacion;
@@ -65,6 +64,9 @@ public class Tour {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
+
+    public void getCodigoIdentificacion(long nuevoCodigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
