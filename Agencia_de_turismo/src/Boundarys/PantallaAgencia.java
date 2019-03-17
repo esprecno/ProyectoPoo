@@ -100,9 +100,70 @@ public class PantallaAgencia {
                 break;
             }
             case 8: {
+                System.out.println("Digite id del usuario que quiere modificar: ");
+                long id = sc.nextLong();
+                System.out.println("Digite el numeral del dato que desea cambiar\n1.)Numero de identificacion: " + cd.controlaagencia.buscarCliente(id).getNumeroIdentificacion()
+                        + "\n2.)Nombre: " + cd.controlaagencia.buscarCliente(id).getNombreCompleto() + "\n3.)Numero de telefono: " + cd.controlaagencia.buscarCliente(id).getTelefonoContacto() + "\nSu opcion: ");
+                int opcion;
+                opcion = sc.nextInt();
+                if (cd.controlaagencia.buscarCliente(id) != null) {
+                    switch (opcion) {
+                        case 1:
+                            System.out.println("\nSelecciono cambiar numero de identificacion\nDigite el numero de identificacion al cual desea cambiar: ");
+                            long nuevoId = sc.nextInt();
+                            if (cd.controlaagencia.modificarCliente(id, nuevoId)) {
+                                System.out.println("Cambio de id del cliente exitoso");
+                            } else {
+                                System.out.println("Error en el cambio del id del cliente con errores, " + nuevoId + " ya esta registrado para otro cliente");
+                            }
+                            break;
+
+                        case 2:
+                            sc.nextLine();
+                            System.out.print("Cambiar nombre de usuario\nDigite el nuevo nombre para el usuario: ");
+                            String nuevoNombre = sc.nextLine();
+                            cd.controlaagencia.modificarCliente(id, nuevoNombre);
+                            System.out.println("Nombre cambiado con exito");
+                            break;
+
+                        case 3:
+                            sc.nextLine();
+                            System.out.print("Cambiar numero de telefono\nDigite el nuevo numero de telefono: ");
+                            String nuevoTelefono = sc.nextLine();
+                            cd.controlaagencia.modificarCliente(nuevoTelefono, id);
+                            System.out.println("Numero de telefono cambiado con exito");
+                            break;
+                            
+                        default:
+                            System.out.println("Opcion incorrecta");
+                            break;
+
+                    }
+                }
                 break;
             }
             case 9: {
+                System.out.println("=======Eliminar un cliente==========");
+                System.out.print("Digite el id del cliente que desea eliminar: ");
+                int idEliminar = sc.nextInt();
+                if ((cd.controlaagencia.buscarCliente(idEliminar) != null) && (cd.controlaagencia.asociacionReservas(cd.controlaagencia.buscarCliente(idEliminar)))) {
+                    System.out.print("Realmente desea eliminar el cliente\n1.)Si\n2)No\nSu opcion: ");
+                    int opcion = sc.nextInt();
+                    while ((opcion != 2) || (opcion != 1)) {
+                        switch (opcion) {
+                            case 1:
+                                cd.controlaagencia.eliminarCliente(idEliminar, opcion);
+                                System.out.println("Cliente eliminado con exito");
+                                break;
+                            case 2:
+                                System.out.println("No se eliminara el cliente");
+                                break;
+                            default:
+                                System.out.println("Opcion no disponible");
+                                break;
+                        }
+                    }
+                }
                 break;
             }
             case 10: {

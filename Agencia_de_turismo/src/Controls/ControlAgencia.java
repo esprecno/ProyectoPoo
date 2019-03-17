@@ -47,77 +47,32 @@ public class ControlAgencia {
             this.listaClientes.add(nuevo);
             return true;
         }
-        System.out.println("Cliente insertado con anterioridad");
         return false;
     }
-
-    public void modificarCliente(long id) {
-        if (buscarCliente(id) != null) {
-            Cliente user = buscarCliente(id);
-            Scanner tx = new Scanner(System.in);
-            System.out.println("Digite el numeral del dato que desea cambiar\n1.)Numero de identificacion: " + user.getNumeroIdentificacion()
-                    + "\n2.)Nombre: " + user.getNombreCompleto() + "\n3.)Numero de telefono: " + user.getTelefonoContacto() + "\nSu opcion: ");
-            int opcion = tx.nextInt();
-            int pos = this.listaClientes.indexOf(user);
-            switch (opcion) {
-                case 1:
-                    System.out.println("\nSelecciono cambiar numero de identificacion\n"
-                            + "Digite el numero de identificacion al cual desea cambiar");
-                    tx.nextLine();
-                    long nuevoId = tx.nextInt();
-                    if (buscarCliente(nuevoId) == null) {
-                        this.listaClientes.get(pos).setNumeroIdentificacion(nuevoId);
-                        System.out.println("Numero de identificacion cambiado con exito");
-                    } else {
-                        System.out.println("Existe un usuario registrado con ese Id, imposible cambiar el dato");
-                    }
-                    break;
-                case 2:
-                    tx.nextLine();
-                    System.out.print("Cambiar nombre de usuario\nDigite el nuevo nombre para el usuario: ");
-                    String nuevoNombre = tx.nextLine();
-                    this.listaClientes.get(pos).setNombreCompleto(nuevoNombre);
-                    System.out.println("Nombre cambiado con exito");
-                    break;
-                case 3:
-                    tx.nextLine();
-                    System.out.print("Cambiar numero de telefono\nDigite el nuevo numero de telefono: ");
-                    String nuevoTelefono = tx.nextLine();
-                    this.listaClientes.get(pos).setTelefonoContacto(nuevoTelefono);
-                    System.out.println("Numero de telefono cambiado con exito");
-                    break;
-                default:
-                    System.out.println("Opcion incorrecta");
-                    break;
-            }
-        }
-        System.out.println("El cliente no existe");
+    
+    public void modificarCliente(String nuevoTelefono, long id) {
+        int pos = this.listaClientes.indexOf(buscarCliente(id));
+        this.listaClientes.get(pos).setTelefonoContacto(nuevoTelefono);
+        System.out.println("Numero de telefono cambiado con exito");
     }
-
-    public void eliminarCliente(long id) {
-        if (buscarCliente(id) != null) {
-            if (asociacionReservas(buscarCliente(id)) == false) {
-                Scanner tx = new Scanner(System.in);
-                System.out.print("Realmente desea eliminar el cliente\n1.)Si\n2)No\nSu opcion: ");
-                int opcion = tx.nextInt();
-                switch (opcion) {
-                    case 1:
-                        this.listaClientes.remove(buscarCliente(id));
-                        System.out.println("Cliente eliminado con exito");
-                        break;
-                    case 2:
-                        System.out.println("No se eliminara el cliente");
-                        break;
-                    default:
-                        System.out.println("Opcion no permitida");
-                        break;
-                }
-            } else {
-                System.out.println("El cliente tiene una reserva");
-            }
+    
+    public boolean modificarCliente(long id, long nuevoId) {
+        int pos = this.listaClientes.indexOf(buscarCliente(id));
+        if (buscarCliente(nuevoId) == null) {
+            this.listaClientes.get(pos).setNumeroIdentificacion(nuevoId);
+            return true;
         } else {
-            System.out.println("El cliente no existe");
+            return false;
         }
+    }
+    
+    public void modificarCliente(long id, String nuevoNombre) {
+        int pos = this.listaClientes.indexOf(buscarCliente(id));
+        this.listaClientes.get(pos).setNombreCompleto(nuevoNombre);
+    }
+    
+    public void eliminarCliente(long id,int opcion) {
+        this.listaClientes.remove(buscarCliente(id));
     }
 
     public Cliente buscarCliente(long id) {
