@@ -41,13 +41,14 @@ public class ControlAgencia {
      
     
 
-    public void insertarCliente(long id, String nombre, String telefono) {
+    public boolean insertarCliente(long id, String nombre, String telefono) {
         if (buscarCliente(id) == null) {
             Cliente nuevo = new Cliente(id, nombre, telefono);
             this.listaClientes.add(nuevo);
-            System.out.println("Cliente insertado con exito");
+            return true;
         }
         System.out.println("Cliente insertado con anterioridad");
+        return false;
     }
 
     public void modificarCliente(long id) {

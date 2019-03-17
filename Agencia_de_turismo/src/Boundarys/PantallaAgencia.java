@@ -81,8 +81,19 @@ public class PantallaAgencia {
                 break;
             }
             case 6: {
-                cd.controlaagencia.insertarCliente(50000, "felipe", "3202317897");
-
+                System.out.println("Digite el los datos del cliente que desea insertar: ");
+                sc.nextLine();
+                System.out.print("Digite el id del nuevo cliente: ");
+                long id = sc.nextLong();
+                System.out.print("Digite el nombre completo para su nuevo cliente: ");
+                String name = sc.nextLine();
+                System.out.print("Digite el numero de telefono para su nuevo cliente: ");
+                String telefono = sc.nextLine();
+                if(cd.controlaagencia.insertarCliente(id, name, telefono)==true){
+                    System.out.println("Cliente insertado con exito");
+                }else{
+                    System.out.println("Cliente con un id igual añádido con anterioridad");
+                }
                 break;
             }
             case 7: {
