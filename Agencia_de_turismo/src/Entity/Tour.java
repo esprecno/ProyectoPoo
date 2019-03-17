@@ -17,6 +17,15 @@ public class Tour {
     private String horaPartida;
     private double precio;
 
+    public Tour(long codigoIdentificacion, String nombreComercial, String lugarPartida, String horaPartida, double precio) {
+        this.codigoIdentificacion = codigoIdentificacion;
+        this.nombreComercial = nombreComercial;
+        this.lugarPartida = lugarPartida;
+        this.horaPartida = horaPartida;
+        this.precio = precio;
+    }
+    
+
     public long getCodigoIdentificacion() {
         return codigoIdentificacion;
     }

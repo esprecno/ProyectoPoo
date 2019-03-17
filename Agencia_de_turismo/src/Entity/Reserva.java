@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Entity;
+import java.util.ArrayList;
 
 import java.util.Calendar;
 
@@ -18,9 +19,28 @@ public class Reserva {
     private boolean pagado;
     private int cantidadPersonas;
     private Cliente clienteReserva;
+    private ArrayList<Tour> tourReservado;
 
+    public Reserva(long numeroReserva, Calendar fecha, boolean pagado, int cantidadPersonas, Cliente clienteReserva) {
+        this.numeroReserva = numeroReserva;
+        this.fecha = fecha;
+        this.pagado = pagado;
+        this.cantidadPersonas = cantidadPersonas;
+        this.clienteReserva = clienteReserva;
+        this.tourReservado = new ArrayList<>();
+    }
+
+    
     public long getNumeroReserva() {
         return numeroReserva;
+    }
+
+    public ArrayList<Tour> getTourReservado() {
+        return tourReservado;
+    }
+
+    public void setTourReservado(ArrayList<Tour> tourReservado) {
+        this.tourReservado = tourReservado;
     }
 
     public void setNumeroReserva(long numeroReserva) {
